@@ -1,1 +1,1 @@
-# G-r-nt-leme
+# Görüntü İşleme
