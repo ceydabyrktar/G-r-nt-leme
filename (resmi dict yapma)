@@ -1,0 +1,14 @@
+def resmidictyap(myNumbers): #%20 den az siyah varsa resmi sözlük yapısına çevir
+if (myhistogram[1]/(myhistogram[0] + myhistogram[1]) < 0.2):
+dictimg = {}
+for i in range (myNumbers.shape[0]):
+for j in range (myNumbers.shape[1]):
+if myNumbers[i][j] ==255:
+dictimg[(i,j)] = 1
+return dictimg
+img1,img2=conRBGtoGray("144.jpg")
+#img2 siyah beyaz resim olacak
+myhistogram=histogramal(img2)
+print(myhistogram)
+print("0'ların 1'e oranı:",myhistogram[1]/(myhistogram[0] + myhistogram[1]))
+print(resmidictyap(img2))
