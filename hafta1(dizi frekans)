@@ -8,4 +8,4 @@ for i in range(len(dizi)):
  if i==len(dizi)-1:
  break
  if dizi[i]!=dizi[i+1]:
- print(dizi[i]," ", dizi.count(dizi[i]),"tane vardır")
+ print(dizi[i]," ", dizi.count(dizi[i]),"adet var")
