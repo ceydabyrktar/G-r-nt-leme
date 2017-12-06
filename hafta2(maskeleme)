@@ -1,4 +1,4 @@
-#Maskeleme
+
 import numpy as np
 import matplotlib.pyplot as plt
 def createCircularMask(h, w, center=None, radius=None):
