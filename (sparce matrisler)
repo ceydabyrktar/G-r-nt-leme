@@ -1,0 +1,60 @@
+class MyMatrix():
+def __init__(self, _d, _f):
+self.D = _d
+self.f = _f
+---------------------------------------------------------------------
+def Create_D_F_uzun(img):
+d = set()
+for i in range(img.shape[0]):
+for j in range(img.shape[1]):
+if img[i,j] == 1:
+d.add((i,j))
+f = {}
+for i,j in d:
+f[(i,j)] = 1
+return MyMatrix(d,f)
+--------------ya da-------------------------------------------------
+def Create_D_F(img):
+d = {(i,j) for i in range(img.shape[0])
+for j in range(img.shape[1])
+# Değeri 1 olan elemanları sadece alınacak
+if img[i,j] == 1
+}
+f = {(i,j):1 for i,j in d}
+return MyMatrix(d,f)
+--------------------------------------------------------------------
+# bir foto yükleme
+img = imread('Bird.jpg')
+# Beyaz Siyaha Çevirmek
+img_bw = convert_RGB_to_BW(img)
+# Sprace Matrisi oluşturmak
+spraceMat = Create_D_F(img_bw)
+plt.subplot(1,2,1), plt.imshow(img)
+plt.subplot(1,2,2), plt.imshow(img_bw, cmap='gray')
+plt.show()
+print('spraceMat.D ilk 5 eleman :')
+D_ilk_5_eleman = list(spraceMat.D)[0:5]
+for i in D_ilk_5_eleman:
+print('\t', i)
+spraceMat.D ilk 5 eleman :
+(266, 351)
+(584, 430)
+(621, 577)
+(609, 621)
+(556, 940)
+print('spraceMat.f ilk 5 eleman :')
+for i in D_ilk_5_eleman:
+print('\tspraceMat.f[' + str(i) + ']\t= ' + str(spraceMat.f[i]))
+spraceMat.f ilk 5 eleman :
+spraceMat.f[(266, 351)] = 1
+spraceMat.f[(584, 430)] = 1
+spraceMat.f[(621, 577)] = 1
+spraceMat.f[(609, 621)] = 1
+spraceMat.f[(556, 940)] = 1
+shape = img_bw.shape
+print('BW image shape : \t\t' + str(shape))
+print('BW image eleman sayisi :\t' + str(shape[0] * shape[1]))
+print('spraceMat.D elemanlar sayisi :\t' + str(len(spraceMat.D)))
+BW image shape : (628, 960)
+BW image eleman sayisi : 602880
+spraceMat.D elemanlar sayisi : 132799
